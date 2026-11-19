@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePilot Agent — AI Coding Assistant</title>
+  <link rel="stylesheet" href="/static/styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════════════════════════════════════ -->
+<div id="page-landing" class="page">
+  <nav class="landing-nav">
+    <a class="nav-logo" href="#" data-nav="landing">
+      <div class="nav-logo-icon">🤖</div>
+      CodePilot
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="#" data-nav="about">About</a>
+      <a class="nav-link" href="#" data-nav="login">Sign In</a>
+      <a class="nav-btn" href="#" data-nav="signup">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">🚀 AI-Powered Coding Agent</div>
+    <h1 class="hero-title">
+      Code faster with an<br>
+      <span class="accent">AI that actually</span><br>
+      <span class="accent-y">executes</span>
+    </h1>
+    <p class="hero-sub">
+      CodePilot Agent plans, writes, runs, and fixes your code — 
+      end-to-end. Not a chatbot. A real autonomous software engineer.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-hero-primary" href="#" data-nav="signup">
+        Start Building Free →
+      </a>
+      <a class="btn-hero-secondary" href="#" data-nav="about">
+        How it works
+      </a>
+    </div>
+    <p style="margin-top:28px;font-size:12px;color:rgba(248,250,247,0.3);">
+      <span class="api-status-inline"></span>
+    </p>
+  </section>
+
+  <section class="features-section">
+    <p class="section-label">What CodePilot does</p>
+    <h2 class="section-title">An AI that gets things done</h2>
+    <p class="section-sub">Not just suggestions — actual code, actual execution, actual results.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-name">Understands your project</div>
+        <div class="feature-desc">Reads your files, detects frameworks, understands structure before it touches anything.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-name">RAG-powered memory</div>
+        <div class="feature-desc">Uses ChromaDB + local embeddings to semantically retrieve relevant code context automatically.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-name">Multi-provider LLM</div>
+        <div class="feature-desc">Works with Groq, OpenAI, OpenRouter, or any OpenAI-compatible API. Switch providers in settings.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-name">Safe by design</div>
+        <div class="feature-desc">Workspace sandbox, command allowlist, risk classification, and human approval for dangerous operations.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <div class="feature-name">Self-correcting loop</div>
+        <div class="feature-desc">Runs code, reads errors, fixes them, reruns tests — up to 12 iterations until it works.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <div class="feature-name">Persistent memory</div>
+        <div class="feature-desc">Conversations, tasks, tool executions, and file changes are all stored in SQLite.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">From prompt to working code</h2>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Describe</div>
+        <div class="step-desc">Tell the agent what to build, fix, or explore in plain English.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Plan</div>
+        <div class="step-desc">The agent generates a step-by-step plan and shows it to you.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Execute</div>
+        <div class="step-desc">Tools run — files get read, code gets written, tests get executed.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Verify</div>
+        <div class="step-desc">Errors are detected, fixes are applied, tests are rerun.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Report</div>
+        <div class="step-desc">A clear summary of everything done, created, and modified.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to ship faster?</h2>
+    <p class="cta-sub">Free to run locally. Bring your own API key.</p>
+    <a class="btn-hero-primary" href="#" data-nav="signup" style="display:inline-flex;">
+      Create Your Account →
+    </a>
+  </section>
+
+  <footer class="landing-footer">
+    <span>© 2024 CodePilot Agent — AIVAR Capstone</span>
+    <div class="footer-links">
+      <a href="#" data-nav="about">About</a>
+      <a href="#" data-nav="login">Sign In</a>
+      <a href="#" data-nav="signup">Sign Up</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ABOUT PAGE
+═══════════════════════════════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <nav class="about-nav">
+    <a class="nav-logo" href="#" data-nav="landing">
+      <div class="nav-logo-icon" style="width:30px;height:30px;font-size:16px;">🤖</div>
+      <span style="font-size:16px;font-weight:800;color:var(--cream);margin-left:8px;">CodePilot Agent</span>
+    </a>
+    <div class="nav-links" style="margin-left:auto;">
+      <a class="nav-link" href="#" data-nav="landing">Home</a>
+      <a class="nav-btn" href="#" data-nav="signup">Get Started</a>
+    </div>
+  </nav>
+
+  <main class="about-content" style="overflow-y:auto;">
+    <div class="about-hero-label">About CodePilot Agent</div>
+    <h1 class="about-hero-title">An AI coding agent you can actually understand</h1>
+    <p class="about-hero-lead">
+      CodePilot Agent is a fully-local AI software development assistant built as an AIVAR Capstone project. 
+      It demonstrates how autonomous coding agents work — plan, execute tools, self-correct, and report — 
+      with no magic and no black boxes.
+    </p>
+
+    <div class="about-section">
+      <h2 class="about-h2"><span class="ico">🏗️</span> Architecture</h2>
+      <p class="about-p">The system has three layers: a FastAPI Python backend, a vanilla JavaScript single-page frontend, and an agentic execution engine that coordinates LLM calls, tool execution, and real-time streaming.</p>
+      <div class="about-grid">
+        <div class="about-card"><div class="about-card-title">FastAPI Backend</div><div class="about-card-desc">Python 3.13, async REST API, SSE streaming for real-time agent events, SQLite persistence via SQLAlchemy.</div></div>
+        <div class="about-card"><div class="about-card-title">Agent Loop</div><div class="about-card-desc">Iterative plan → LLM → tool call → result → repeat cycle. Up to 12 iterations with cancellation support.</div></div>
+        <div class="about-card"><div class="about-card-title">RAG System</div><div class="about-card-desc">ChromaDB with local ONNX all-MiniLM-L6-v2 embeddings. Indexes workspace files and injects relevant context before each task.</div></div>
+        <div class="about-card"><div class="about-card-title">Frontend SPA</div><div class="about-card-desc">Pure HTML/CSS/JS. No framework. ChatGPT-inspired chat UI with real-time activity panel and multi-page routing.</div></div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2 class="about-h2"><span class="ico">🔧</span> Agent Tools</h2>
+      <p class="about-p">The agent has 9 tools it can call: <code>list_files</code>, <code>read_file</code>, <code>write_file</code>, <code>edit_file</code>, <code>search_files</code>, <code>get_project_info</code>, <code>run_command</code>, <code>run_tests</code>, <code>git_status</code>. Each tool has a risk classification and tool calls requiring human approval will pause the agent loop.</p>
+    </div>
+
+    <div class="about-section">
+      <h2 class="about-h2"><span class="ico">🛡️</span> Security Model</h2>
+      <p class="about-p">All file paths are validated to stay inside the selected workspace. Commands are checked against an allowlist (python, pytest, npm, git status, etc.) and a blocklist of destructive patterns. High-risk operations require explicit user approval before execution.</p>
+    </div>
+
+    <div class="about-section">
+      <h2 class="about-h2"><span class="ico">⚡</span> Tech Stack</h2>
+      <div class="about-tech-row">
+        <span class="tech-chip">Python 3.13</span>
+        <span class="tech-chip">FastAPI</span>
+        <span class="tech-chip">SQLAlchemy</span>
+        <span class="tech-chip">SQLite</span>
+        <span class="tech-chip">ChromaDB</span>
+        <span class="tech-chip">ONNX Embeddings</span>
+        <span class="tech-chip">OpenAI SDK</span>
+        <span class="tech-chip">Groq</span>
+        <span class="tech-chip">JWT Auth</span>
+        <span class="tech-chip">bcrypt</span>
+        <span class="tech-chip">SSE</span>
+        <span class="tech-chip">Vanilla JS</span>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <a class="btn-hero-primary" href="#" data-nav="signup" style="display:inline-flex;">Start Using It →</a>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SIGNUP PAGE
+═══════════════════════════════════════════════════════════════════════ -->
+<div id="page-signup" class="page">
+  <div class="auth-wrapper">
+    <!-- Left brand panel -->
+    <div class="auth-panel-left">
+      <div class="auth-brand-icon">🤖</div>
+      <div class="auth-brand-name">CodePilot Agent</div>
+      <div class="auth-brand-tag">AI-powered coding assistant that plans, codes, and fixes — autonomously.</div>
+      <div class="auth-left-features">
+        <div class="auth-feat">
+          <div class="auth-feat-icon">🔍</div>
+          <div class="auth-feat-text"><strong>RAG-powered context</strong>Semantic search over your entire codebase, automatically.</div>
+        </div>
+        <div class="auth-feat">
+          <div class="auth-feat-icon">⚡</div>
+          <div class="auth-feat-text"><strong>Groq / OpenAI / OpenRouter</strong>Bring any OpenAI-compatible API key.</div>
+        </div>
+        <div class="auth-feat">
+          <div class="auth-feat-icon">🛡️</div>
+          <div class="auth-feat-text"><strong>Human-in-the-loop</strong>Approve or reject risky operations before they run.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="auth-panel-right">
+      <div class="auth-form-box">
+        <div class="auth-form-title">Create your account</div>
+        <div class="auth-form-sub">Already have one? <a href="#" data-nav="login">Sign in</a></div>
+
+        <div id="signup-alert" class="auth-alert"></div>
+
+        <form id="signup-form" autocomplete="on">
+          <div class="form-group">
+            <label class="form-label" for="su-fullname">Full Name <span style="color:var(--text-dim);font-weight:400;">(optional)</span></label>
+            <input class="form-input" id="su-fullname" type="text" placeholder="Jane Doe" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="su-username">Username <span style="color:var(--red)">*</span></label>
+            <input class="form-input" id="su-username" type="text" placeholder="janedoe" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="su-email">Email address <span style="color:var(--red)">*</span></label>
+            <input class="form-input" id="su-email" type="email" placeholder="jane@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="su-password">Password <span style="color:var(--red)">*</span></label>
+            <input class="form-input" id="su-password" type="password" placeholder="At least 6 characters" required autocomplete="new-password">
+          </div>
+          <button class="btn-auth" id="btn-signup" type="submit">Create Account →</button>
+        </form>
+
+        <a class="auth-back-home" href="#" data-nav="landing">← Back to home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     LOGIN PAGE
+═══════════════════════════════════════════════════════════════════════ -->
+<div id="page-login" class="page">
+  <div class="auth-wrapper">
+    <div class="auth-panel-left">
+      <div class="auth-brand-icon">🤖</div>
+      <div class="auth-brand-name">Welcome back</div>
+      <div class="auth-brand-tag">Your conversations, tasks, and project memory are waiting for you.</div>
+      <div class="auth-left-features">
+        <div class="auth-feat">
+          <div class="auth-feat-icon">💬</div>
+          <div class="auth-feat-text"><strong>Persistent conversations</strong>Every chat and agent task is saved and searchable.</div>
+        </div>
+        <div class="auth-feat">
+          <div class="auth-feat-icon">📁</div>
+          <div class="auth-feat-text"><strong>Workspace memory</strong>Your codebase is indexed and ready for semantic retrieval.</div>
+        </div>
+        <div class="auth-feat">
+          <div class="auth-feat-icon">⚙️</div>
+          <div class="auth-feat-text"><strong>Saved settings</strong>Your API provider and preferences are remembered.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-panel-right">
+      <div class="auth-form-box">
+        <div class="auth-form-title">Sign in</div>
+        <div class="auth-form-sub">New here? <a href="#" data-nav="signup">Create an account</a></div>
+
+        <div id="login-alert" class="auth-alert"></div>
+
+        <form id="login-form" autocomplete="on">
+          <div class="form-group">
+            <label class="form-label" for="li-email">Email address</label>
+            <input class="form-input" id="li-email" type="email" placeholder="jane@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="li-password">Password</label>
+            <input class="form-input" id="li-password" type="password" placeholder="Your password" required autocomplete="current-password">
+          </div>
+          <button class="btn-auth" id="btn-login" type="submit">Sign In →</button>
+        </form>
+
+        <a class="auth-back-home" href="#" data-nav="landing">← Back to home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CHAT WORKSPACE
+═══════════════════════════════════════════════════════════════════════ -->
+<div id="page-chat" class="page">
+
+  <!-- ── Sidebar ───────────────────────────────────────────────────── -->
+  <aside id="chat-sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">🤖</div>
+        <div class="sidebar-logo-name">
+          CodePilot
+          <span>AI Agent</span>
+        </div>
+      </div>
+
+      <button class="btn-new-chat" onclick="newConversation()">
+        ✚ New conversation
+      </button>
+
+      <div class="sidebar-search">
+        <span class="s-ico">🔍</span>
+        <input id="conv-search" type="text" placeholder="Search chats…">
+      </div>
+    </div>
+
+    <div class="sidebar-section-label">Recent</div>
+    <div id="conv-list"></div>
+
+    <div class="sidebar-footer">
+      <button class="sidebar-footer-item" onclick="openSettings()">
+        <span>⚙️</span> Settings
+      </button>
+      <button class="sidebar-footer-item" onclick="showPage('about')">
+        <span>ℹ️</span> About
+      </button>
+      <div class="sidebar-user-row">
+        <div class="user-avatar" id="sidebar-avatar">?</div>
+        <span class="user-name" id="sidebar-username">User</span>
+        <button class="btn-logout" onclick="logout()" title="Log out">⎋</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── Main chat ─────────────────────────────────────────────────── -->
+  <div id="chat-main">
+
+    <!-- Top bar -->
+    <div id="chat-topbar">
+      <div class="topbar-title-area">
+        <span class="topbar-conv-title" id="topbar-conv-title">CodePilot Agent</span>
+        <span class="topbar-status ts-idle" id="topbar-status-badge">Checking…</span>
+      </div>
+      <div class="topbar-actions">
+        <span style="font-size:12px;color:var(--text-dim);margin-right:4px;" id="workspace-label"></span>
+        <button class="topbar-btn" onclick="toggleActivity()">≡ Activity</button>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-messages">
+      <div id="chat-welcome">
+        <div class="welcome-icon-big">🤖</div>
+        <div class="welcome-heading">What can I build for you?</div>
+        <div class="welcome-desc">
+          Describe a coding task and I'll plan, write, run, and fix it —
+          using your actual workspace files and tools.
+        </div>
+        <div class="welcome-suggestions">
+          <button class="suggest-btn">Inspect this project and explain its structure and main files.</button>
+          <button class="suggest-btn">Create a Python calculator with tests and input validation.</button>
+          <button class="suggest-btn">Search the codebase for TODO comments and summarize them.</button>
+          <button class="suggest-btn">Check git status and show what has changed recently.</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input area -->
+    <div id="chat-input-area">
+      <div class="input-box">
+        <textarea
+          id="chat-textarea"
+          placeholder="Describe your coding task… (Enter to send, Shift+Enter for newline)"
+          rows="1"
+        ></textarea>
+        <div class="input-actions">
+          <button class="btn-stop" id="btn-chat-stop" onclick="stopAgent()" title="Stop agent">⏹</button>
+          <button class="btn-send" id="btn-chat-send" onclick="sendMessage()" title="Send (Enter)">➤</button>
+        </div>
+      </div>
+      <div class="input-hint">
+        🔒 Sandboxed workspace · Enter to send · Shift+Enter for new line
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Activity panel ────────────────────────────────────────────── -->
+  <div id="chat-activity">
+    <div class="activity-header">
+      <span class="activity-title">Agent Activity</span>
+      <button class="activity-toggle-btn" onclick="toggleActivity()">✕</button>
+    </div>
+
+    <div class="activity-tabs">
+      <button class="act-tab active" data-tab="activity">Activity</button>
+      <button class="act-tab" data-tab="plan">Plan</button>
+      <button class="act-tab" data-tab="tools">Tools</button>
+      <button class="act-tab" data-tab="changes">Changes</button>
+    </div>
+
+    <!-- Activity pane -->
+    <div class="act-pane show" data-pane="activity">
+      <div class="task-status-box">
+        <div class="task-row">
+          <div class="task-dot idle" id="task-dot"></div>
+          <span class="task-label" id="task-label">Idle</span>
+          <span class="task-iter" id="task-iter"></span>
+        </div>
+        <div class="task-prompt-preview" id="task-preview"></div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="stat-num" id="stat-tools">0</div><div class="stat-lbl">Tools</div></div>
+        <div class="stat-box"><div class="stat-num" id="stat-files-c">0</div><div class="stat-lbl">Changed</div></div>
+        <div class="stat-box"><div class="stat-num" id="stat-files-r">0</div><div class="stat-lbl">Read</div></div>
+        <div class="stat-box"><div class="stat-num" id="stat-errors">0</div><div class="stat-lbl">Errors</div></div>
+      </div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dim);margin-bottom:6px;">Live Log</div>
+      <div id="act-log"></div>
+    </div>
+
+    <!-- Plan pane -->
+    <div class="act-pane" data-pane="plan">
+      <div id="act-plan" style="font-size:12px;color:var(--text-dim);padding:8px 0;">Plan will appear here.</div>
+    </div>
+
+    <!-- Tools pane -->
+    <div class="act-pane" data-pane="tools">
+      <div id="act-tools" style="font-size:12px;color:var(--text-dim);padding:8px 0;">Tool calls will appear here.</div>
+    </div>
+
+    <!-- Changes pane -->
+    <div class="act-pane" data-pane="changes">
+      <div id="act-changes" style="font-size:12px;color:var(--text-dim);padding:8px 0;">File changes will appear here.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SETTINGS MODAL
+═══════════════════════════════════════════════════════════════════════ -->
+<div id="settings-overlay">
+  <div class="settings-modal">
+    <div class="settings-modal-header">
+      <span class="settings-modal-title">⚙ Settings</span>
+      <button class="settings-close-btn" onclick="closeSettings()">✕</button>
+    </div>
+
+    <!-- LLM Provider -->
+    <div class="settings-section">
+      <div class="settings-section-title">LLM Provider</div>
+      <div class="provider-tabs">
+        <button class="provider-tab active" data-provider="groq" onclick="selectProvider('groq')">Groq</button>
+        <button class="provider-tab" data-provider="openai" onclick="selectProvider('openai')">OpenAI</button>
+        <button class="provider-tab" data-provider="openrouter" onclick="selectProvider('openrouter')">OpenRouter</button>
+        <button class="provider-tab" data-provider="ollama" onclick="selectProvider('ollama')">Ollama</button>
+        <button class="provider-tab" data-provider="custom" onclick="selectProvider('custom')">Custom</button>
+      </div>
+      <div class="setting-row">
+        <label class="setting-label">API Key</label>
+        <input class="setting-input" id="s-api-key" type="password" placeholder="Enter your API key (not stored in DB)">
+        <div class="setting-desc">Never saved to the database — only applied in memory and .env</div>
+      </div>
+      <div class="setting-row">
+        <label class="setting-label">Model</label>
+        <select class="setting-input" id="s-model"></select>
+      </div>
+      <div class="setting-row" id="base-url-row">
+        <label class="setting-label">Base URL <span style="color:var(--text-dim);font-weight:400;">(custom provider)</span></label>
+        <input class="setting-input" id="s-base-url" type="text" placeholder="https://api.example.com/v1">
+      </div>
+      <div class="api-status-row" id="s-api-status">
+        <span style="color:var(--text-dim)">Loading…</span>
+      </div>
+      <div class="settings-btn-row" style="margin-top:12px;">
+        <button class="btn-settings-primary" id="btn-save-provider" onclick="saveProviderSettings()">Save Provider</button>
+        <button class="btn-settings-secondary" id="btn-test-llm" onclick="testLLM()">Test Connection</button>
+      </div>
+    </div>
+
+    <!-- Agent -->
+    <div class="settings-section">
+      <div class="settings-section-title">Agent Behaviour</div>
+      <div class="setting-row">
+        <label class="setting-label">Max Iterations</label>
+        <input class="setting-input" id="s-max-iter" type="number" min="1" max="50" placeholder="12">
+        <div class="setting-desc">Stop the agent after this many LLM+tool cycles per task</div>
+      </div>
+      <div class="setting-row">
+        <label class="setting-label">Command Timeout (seconds)</label>
+        <input class="setting-input" id="s-timeout" type="number" min="5" max="300" placeholder="30">
+      </div>
+    </div>
+
+    <!-- Approvals -->
+    <div class="settings-section">
+      <div class="settings-section-title">Approval & Security</div>
+      <div class="setting-row">
+        <label class="setting-label" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+          <input type="checkbox" id="s-approve-high" checked style="width:16px;height:16px;accent-color:var(--mint);">
+          Require approval for high-risk operations
+        </label>
+        <div class="setting-desc">File deletion, destructive commands (recommended: on)</div>
+      </div>
+      <div class="setting-row">
+        <label class="setting-label" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+          <input type="checkbox" id="s-approve-med" style="width:16px;height:16px;accent-color:var(--mint);">
+          Require approval for medium-risk operations
+        </label>
+        <div class="setting-desc">Writing/editing files, running commands</div>
+      </div>
+      <div class="settings-btn-row" style="margin-top:12px;">
+        <button class="btn-settings-primary" onclick="saveGeneralSettings()">Save Settings</button>
+      </div>
+    </div>
+
+    <!-- RAG -->
+    <div class="settings-section">
+      <div class="settings-section-title">RAG / Workspace Index</div>
+      <div class="setting-row">
+        <label class="setting-label">Vector DB Status</label>
+        <div class="setting-desc" id="s-rag-info">Loading…</div>
+      </div>
+      <div class="settings-btn-row">
+        <button class="btn-settings-secondary" id="btn-rag-index" onclick="triggerRAGIndex()">Re-index Workspace</button>
+        <button class="btn-settings-secondary" onclick="API.ragClear().then(()=>showToast('Index cleared','ok')).catch(e=>showToast(e.message,'err'))">Clear Index</button>
+      </div>
+    </div>
+
+    <!-- DB Info -->
+    <div class="settings-section">
+      <div class="settings-section-title">Database</div>
+      <div class="setting-row">
+        <div class="setting-desc" id="s-db-info">Loading…</div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="settings-section">
+      <div class="settings-section-title">About</div>
+      <div style="font-size:13px;color:var(--text-dim);line-height:1.8;">
+        <strong style="color:var(--cream);">CodePilot Agent</strong> v1.1.0<br>
+        Stack: FastAPI · SQLite · ChromaDB · Groq/OpenAI · Vanilla JS<br>
+        <a href="#" data-nav="about" onclick="closeSettings()" style="color:var(--mint);">View full documentation →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="toast-wrap"></div>
+
+<!-- Scripts -->
+<script src="/static/scripts/api.js"></script>
+<script src="/static/scripts/markdown.js"></script>
+<script src="/static/scripts/app.js"></script>
+
+<script>
+// Wire up all data-nav links and conversation search
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-nav]');
+  if (el) { e.preventDefault(); showPage(el.dataset.nav); }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const search = document.getElementById('conv-search');
+  if (search) {
+    search.addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.conv-item').forEach(el => {
+        el.style.display = el.querySelector('.conv-title').textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  }
+});
+
+function toggleActivity() {
+  const panel = document.getElementById('chat-activity');
+  const btn = document.querySelector('[onclick="toggleActivity()"]');
+  const isCollapsed = panel.classList.toggle('collapsed');
+  // Update topbar button text to reflect current state
+  if (btn && btn.id !== 'activity-toggle-inner') {
+    btn.textContent = isCollapsed ? '≡ Show Activity' : '≡ Activity';
+  }
+}
+</script>
+</body>
+</html>
